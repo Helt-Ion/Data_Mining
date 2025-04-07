@@ -1,0 +1,5 @@
+Columns:
+Index(['id', 'last_login', 'user_name', 'fullname', 'email', 'age', 'income',
+       'gender', 'country', 'address', 'purchase_history', 'is_active',
+       'registration_date', 'phone_number', 'login_history'],
+      dtype='object')

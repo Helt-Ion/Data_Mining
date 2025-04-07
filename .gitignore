@@ -1,0 +1,6 @@
+__pycache__
+env/Python310
+env/venv
+.idea
+.vs
+.ipynb_checkpoints
