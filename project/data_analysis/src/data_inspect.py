@@ -6,7 +6,7 @@ import time
 
 def data_read():
 	print(f"30G data:")
-	parquet_file = os.path.join("data/30G_data_new", "part-00000.parquet");
+	parquet_file = os.path.join("data/30G_data_new", "part-00000.parquet")
 	data = pd.read_parquet(parquet_file)
 	first_row = data.iloc[0]
 	print(first_row)

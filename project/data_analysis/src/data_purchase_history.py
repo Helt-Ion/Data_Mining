@@ -8,7 +8,7 @@ import time
 def get_parquet_files(data_file, part_num):
 	parquet_files = []
 	for i in range(0, part_num):
-		parquet_file = os.path.join(data_file, f"part-{i:05d}.parquet");
+		parquet_file = os.path.join(data_file, f"part-{i:05d}.parquet")
 		parquet_files.append(parquet_file)
 	return parquet_files
 

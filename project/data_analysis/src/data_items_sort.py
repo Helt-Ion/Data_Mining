@@ -13,7 +13,7 @@ global_categories = ['上衣', '健身器材', '儿童课外读物', '内衣', '
 def get_parquet_files(data_file, part_num):
 	parquet_files = []
 	for i in range(0, part_num):
-		parquet_file = os.path.join(data_file, f"part-{i:05d}_items_info.parquet");
+		parquet_file = os.path.join(data_file, f"part-{i:05d}_items_info.parquet")
 		parquet_files.append(parquet_file)
 	return parquet_files
 

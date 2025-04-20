@@ -6,11 +6,11 @@ import time
 
 def data_read():
 	print(f"10G data:")
-	parquet_file = os.path.join("data/10G_data_new", "part-00000.parquet");
+	parquet_file = os.path.join("data/10G_data_new", "part-00000.parquet")
 	data = pd.read_parquet(parquet_file)
 	print(data)
 	print(f"30G data:")
-	parquet_file = os.path.join("data/30G_data_new", "part-00000.parquet");
+	parquet_file = os.path.join("data/30G_data_new", "part-00000.parquet")
 	data = pd.read_parquet(parquet_file)
 	print(data)
 	print("Columns:")
