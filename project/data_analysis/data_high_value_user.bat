@@ -5,7 +5,7 @@ set PYTHON="%VENV_DIR%\python"
 
 :: Put your codes here
 
-%PYTHON% -m src.histogram_10GB
+%PYTHON% -m src.data_high_value_user
 
 @echo on
 pause

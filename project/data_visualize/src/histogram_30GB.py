@@ -19,7 +19,7 @@ def main():
 	plt.hist(data, bins=range(0, 1000000, 10000), color='#4C72B0', edgecolor='black', density=True)
 
 	# 设置图表标题和坐标轴标签
-	plt.title('频率分布直方图_10GB数据', fontsize=14, pad=20)
+	plt.title('频率分布直方图_30GB数据', fontsize=14, pad=20)
 	plt.xlabel('用户收入', fontsize=12)
 	plt.ylabel('频率', fontsize=12)
 
