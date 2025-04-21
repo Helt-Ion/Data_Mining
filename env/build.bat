@@ -1,8 +1,8 @@
 @echo off
 
-set INSTALL_TORCH=
+set INSTALL_TORCH=False
 set TORCH_INDEX_URL=
-set TORCH_PACKAGE=torch-2.1.2+cu121-cp310-cp310-win_amd64.whl
+set TORCH_PACKAGE=
 set TORCHVISION_PACKAGE=
 set REQS_FILE=
 
