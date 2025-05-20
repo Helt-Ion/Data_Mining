@@ -53,7 +53,7 @@ def data_process_payment_method_sub(data_file, part_num, category_mp):
 		data_items = data['items'].tolist()
 		for item in data_items:
 			terms = list(map(lambda x : category_mp[x], item.tolist()))
-			terms.append(data['payment_method'])
+			terms.append(item['payment_method'])
 			data_categories.append(terms)
 		del data, data_items
 	print("Categories:")
