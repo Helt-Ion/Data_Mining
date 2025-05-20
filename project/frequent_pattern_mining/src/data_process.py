@@ -8,14 +8,31 @@ from mlxtend.preprocessing import TransactionEncoder
 import pandas as pd
 
 
+global_categories = {
+	"电子产品": ["智能手机", "笔记本电脑", "平板电脑", "智能手表", "耳机", "音响", "相机", "摄像机", "游戏机"],
+	"服装": ["上衣", "裤子", "裙子", "内衣", "鞋子", "帽子", "手套", "围巾", "外套"],
+	"食品": ["零食", "饮料", "调味品", "米面", "水产", "肉类", "蛋奶", "水果", "蔬菜"],
+	"家居": ["家具", "床上用品", "厨具", "卫浴用品"],
+	"办公": ["文具", "办公用品"],
+	"运动户外": ["健身器材", "户外装备"],
+	"玩具": ["玩具", "模型", "益智玩具"],
+	"母婴": ["婴儿用品", "儿童课外读物"],
+	"汽车用品": ["车载电子", "汽车装饰"]
+}
+
+
 def product_catalog_read(json_file):
 	print(f"Reading {json_file}...")
+	main_category_mp = {}
+	for k, v in global_categories.items():
+		for e in v:
+			main_category_mp[e] = k
 	category_mp, price_mp = {}, {}
 	with open(json_file, 'r', encoding='utf-8') as file:
 		product_catalog = json.load(file)['products']
 		for v in product_catalog:
 			product_id = v['id']
-			category_mp[product_id] = v['category']
+			category_mp[product_id] = main_category_mp[v['category']]
 			price_mp[product_id] = v['price']
 	return category_mp, price_mp
 
@@ -37,10 +54,12 @@ def data_process_sub(data_file, part_num, category_mp):
 		for item in data_items:
 			data_categories.append(list(map(lambda x : category_mp[x], item.tolist())))
 		del data, data_items
+	print("Categories:")
 	print(data_categories[:5])
 	te = TransactionEncoder()
 	te_ary = te.fit(data_categories).transform(data_categories)
 	converted_data = pd.DataFrame(te_ary, columns=te.columns_)
+	print("Converted data:")
 	print(converted_data)
 	parquet_output = os.path.join(data_file, f"data_categories.parquet");
 	converted_data.to_parquet(parquet_output)
