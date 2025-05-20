@@ -13,12 +13,16 @@ global_category_list = ["电子产品", "服装", "食品", "家居", "办公", 
 
 
 def random_data():
+	print("Generating random data...")
 	data_file = "data/random_data"
 	data_categories = []
 	n = 135000000
 	m = 5
-	for i in range(n):
+	log_interval = 1000000
+	for i in range(1, n + 1):
 		data_categories.append(random.choices(global_category_list, k=random.randint(1, m)))
+		if i % log_interval == 0:
+			print(f"Data count: {i}")
 	print("Categories:")
 	print(data_categories[:5])
 	te = TransactionEncoder()

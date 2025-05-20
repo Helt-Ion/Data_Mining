@@ -5,7 +5,7 @@ set PYTHON="%VENV_DIR%\python"
 
 :: Put your codes here
 
-%PYTHON% -m src.apriori_test
+%PYTHON% -m src.apriori_random
 
 @echo on
 pause

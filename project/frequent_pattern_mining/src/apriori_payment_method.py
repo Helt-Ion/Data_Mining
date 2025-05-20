@@ -14,7 +14,7 @@ def set_to_str(input_set):
 
 
 def apriori_process_sub(data_file, support_threshold, confidence_threshold):
-	parquet_file = os.path.join(data_file, "data_categories.parquet")
+	parquet_file = os.path.join(data_file, "data_payment_method.parquet")
 	data = pd.read_parquet(parquet_file)
 	# 使用Apriori算法找到频繁项集
 	frequent_itemsets = apriori(data, min_support=support_threshold, use_colnames=True)
