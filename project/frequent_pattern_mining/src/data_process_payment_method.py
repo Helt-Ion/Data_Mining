@@ -50,12 +50,9 @@ def data_process_payment_method_sub(data_file, part_num, category_mp):
 	for ind, parquet_file in enumerate(get_parquet_files(data_file, part_num)):
 		print(f"Reading {parquet_file}...")
 		data = pd.read_parquet(parquet_file)
-		data_items = data['items'].tolist()
-		for item in data_items:
-			terms = list(map(lambda x : category_mp[x], item.tolist()))
-			terms.append(item['payment_method'])
-			data_categories.append(terms)
-		del data, data_items
+		for item, payment_method in data[['items', 'payment_method']].values:
+			data_categories.append(list(map(lambda x : category_mp[x], item.tolist())) + [payment_method])
+		del data
 	print("Categories:")
 	print(data_categories[:5])
 	te = TransactionEncoder()
@@ -69,7 +66,7 @@ def data_process_payment_method_sub(data_file, part_num, category_mp):
 
 def data_process_payment_method():
 	category_mp, price_mp = product_catalog_read("data/product_catalog.json")
-	data_process_payment_method_sub("data/30G_data_new", 1, category_mp)
+	data_process_payment_method_sub("data/30G_data_new", 16, category_mp)
 
 
 def main():

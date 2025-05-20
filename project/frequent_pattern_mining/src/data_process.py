@@ -50,10 +50,9 @@ def data_process_sub(data_file, part_num, category_mp):
 	for ind, parquet_file in enumerate(get_parquet_files(data_file, part_num)):
 		print(f"Reading {parquet_file}...")
 		data = pd.read_parquet(parquet_file)
-		data_items = data['items'].tolist()
-		for item in data_items:
+		for item in data[['items']].values:
 			data_categories.append(list(map(lambda x : category_mp[x], item.tolist())))
-		del data, data_items
+		del data
 	print("Categories:")
 	print(data_categories[:5])
 	te = TransactionEncoder()
