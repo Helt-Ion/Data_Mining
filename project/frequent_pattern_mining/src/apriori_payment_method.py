@@ -25,7 +25,7 @@ def apriori_process_sub(data_file, support_threshold, confidence_threshold):
 	for itemsets, support in frequent_itemsets[['itemsets', 'support']].values:
 		print(f"{set_to_str(itemsets)}, support: {support:.4f}")
 	# 将频繁项集与关联规则储存至txt文件中
-	rules_txt_file = os.path.join(data_file, "rules_categories.txt")
+	rules_txt_file = os.path.join(data_file, "rules_payment_method.txt")
 	print("\nAssociation rules:")
 	with open(rules_txt_file, "w", encoding='utf-8') as f:
 		print("Frequent itemsets:", file=f)
