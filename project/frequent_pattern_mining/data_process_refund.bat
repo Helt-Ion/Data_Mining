@@ -5,7 +5,7 @@ set PYTHON="%VENV_DIR%\python"
 
 :: Put your codes here
 
-%PYTHON% -m src.random_data
+%PYTHON% -m src.data_process_refund
 
 @echo on
 pause
